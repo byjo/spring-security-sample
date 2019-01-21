@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>처리네 냉장고</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        form {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li th:each="snack:${snacks}">
+            <span th:text="${snack}"></span>
+            <form action="#" th:action="@{'/snacks/{snack}'(snack=${snack})}" th:method="delete">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit" id="submitButton">eat</button>
+            </form>
+        </li>
+    </ul>
+</body>
+</html>
